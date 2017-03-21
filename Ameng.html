@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    .box{
+        width: 600px;
+        height: 600px;
+        position: fixed;
+        left: 0;top: 0;right: 0;bottom: 0;
+        margin: auto;
+    }
+    .ameng{
+        position: absolute;
+        left: 0;top: 0;right: 0;bottom:0;
+        margin: auto;
+        width: 390px;
+        height: 480px;
+    }
+    .header{
+        width: 314px;
+        height: 304px;
+        background: blue;
+        border-radius: 46%;
+        background: linear-gradient(45deg,#096178 20%,#0BB5E0 73%,#7FDEF4,#0BB4DE 95%);
+        border:  #333 2px solid;
+        box-shadow: -5px 10px 15px rgba(0,0,0,0.6);
+        margin: 0 auto;
+        margin-top: 20px;
+        position: relative;
+        transform: translate(0,20px);
+    }
+    .face{
+        width: 270px;
+        height: 230px;
+        background: #ffffff;
+        border:  #333 2px solid;
+        position: absolute;
+        border-radius: 60%;
+        bottom: 0;
+        left:21px;
+    }
+    .eyes{
+        width: 76px;
+        height: 87px;
+        border: 2px solid #000;
+        border-radius: 35px 35px;
+        position: absolute;
+        left: 58px;
+        top: -28px;
+        background: #ffffff;
+    }
+    .two{
+        left: 134px;
+    }
+    .yanqiu{
+        width: 15px;
+        height: 15px;
+        background: #000;
+        border-radius: 50%;
+        position: absolute;
+        right: 13px;
+        bottom: 16px;
+    }
+    .yanqiu2{
+        width: 15px;
+        height: 15px;
+        background: #000;
+        border-radius: 50%;
+        position: absolute;
+        left: 13px;
+        bottom: 16px;
+    }
+    .insert{
+        width: 233px;
+        height: 120px;
+        /*background: yellow;*/
+        margin: 0 auto;
+        margin-top: 52px;
+        position: relative;
+    }
+    .bizi{
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        border:  #333 2px solid;
+        margin: 0 auto;
+        background: radial-gradient(#C93E00 40%,#B94B1C);
+        position: relative;
+    }
+    .sbizi{
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ffffff;
+        box-shadow: -1px 1px 6px 3px rgba(255,255,255,1);
+        position: absolute;
+        right: 3px;
+        top: 8px;
+    }
+    .zui{
+        width: 170px;
+        height: 78px;
+        margin: 0 auto;
+        border-radius: 50%;
+        border-bottom: 3px solid #333;
+        margin-top: 19px;
+        position: relative;
+    }
+    .xu{
+        width: 3px;
+        height: 100px;
+        background: #000;
+        position: absolute;
+        left: 50%;
+        top: -19px;
+
+    }
+    .l_face{
+        width: 62px;
+        height: 69px;
+        position: absolute;
+        left: 0;
+        top: 43px;
+    }
+    .r_face{
+        width: 62px;
+        height: 69px;
+        position: absolute;
+        right: 0;
+        top: 43px;
+    }
+    .mao{
+        width: 60px;
+        height: 2px;
+        background: #000000;
+
+    }
+    .l_face>.mao:nth-child(1){
+        transform: rotate(15deg);
+        transform-origin: 89px 0;
+    }
+    .l_face>.mao:nth-child(3){
+        transform: rotate(-15deg);
+        transform-origin: 89px 0;
+    }
+    .r_face>.mao:nth-child(1){
+        transform: rotate(10deg);
+        transform-origin: -89px 0;
+    }
+    .r_face>.mao:nth-child(3){
+        transform: rotate(-10deg);
+        transform-origin: -89px 0;
+    }
+    .weijin{
+        width: 230px;
+        height: 24px;
+        border: #000 solid 2px;
+        border-radius: 10px;
+        margin: 0 auto;
+        background: -webkit-gradient(linear, left top, left bottom, from(#ca4100), to(#800400));
+        margin-top: -12px;
+        position: relative;
+        z-index: 3;
+    }
+    .lingdang{
+        position: absolute;
+        width: 44px;
+        height: 44px;
+        border:2px solid #000;
+        box-sizing: border-box;
+        bottom: -28px;
+        left: 42%;
+        background: linear-gradient(#F6EE27,#BBB307);
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    .body{
+        width: 224px;
+        height: 169px;
+        background: linear-gradient(45deg,#096178 20%,#0BB5E0 73%,#7FDEF4,#0BB4DE 95%);
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+    }
+    .koudai{
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+        border: 2px solid #000;
+        margin: 0 auto;
+        background: #ffffff;
+        margin-top: -35px;
+    }
+    .skoudai{
+        width: 130px;
+        height: 130px;
+        border: 2px solid #000;
+        margin:  0 auto;
+        margin-top: 20px;
+        border-radius: 50%;
+        position: relative;
+    }
+    .zhezhao{
+        width: 134px;
+        height: 132px;
+        position: absolute;
+        border-bottom: 2px solid #000;
+        background: #ffffff;
+        top:-65px;
+        left: -2px;
+    }
+    .l_shou{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        left: 0;
+        top: 324px;
+        z-index: -2;
+    }
+    .r_shou{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        right: 0;
+        top: 324px;
+        z-index: -2;
+    }
+    .shou1{
+        margin-top: 17px;
+        margin-left: -5px;
+        width: 100px;
+        height: 50px;
+        background: #07BEEA;
+        border: 1px solid #000;
+        transform: rotate(30deg);
+        z-index: -2;
+    }
+
+    .shous{
+        width: 60px;
+        height: 60px;
+        border: 2px solid #000;
+        background: #ffffff;
+        position: absolute;
+        right: -6px;
+        top: 28px;
+        border-radius: 50%;
+    }
+    .add{
+        transform: rotate(-30deg);
+        background: #0083A6;
+        margin-left: 10px ;
+        z-index: -3;
+    }
+    .add1{
+        left: 0px;
+
+    }
+    .sbody{
+        width: 100%;
+        box-sizing: border-box;
+        height: 120px;
+        border-left: 2px solid #000;
+        border-right: 2px solid #000;
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    .syuan{
+        width: 24px;
+        height: 24px;
+        box-sizing: border-box;
+        border-radius: 50%;
+        border: 2px solid black;
+        position: absolute;
+        bottom: -12px;
+        left: 45%;
+        background: #ffffff;
+    }
+    .footerbox{
+        overflow: hidden;
+        padding-left: 65px;
+    }
+    .footer{
+        width: 129px;
+        height: 34px;
+        box-sizing: border-box;
+        background: #ffffff;
+        border: 2px solid #000;
+        float: left;
+    }
+    .l_footer{
+        -webkit-border-top-left-radius: 80px;
+        -webkit-border-bottom-left-radius: 40px;
+        -webkit-border-top-right-radius: 60px;
+        -webkit-border-bottom-right-radius: 60px;
+        margin-right: 2px;
+    }
+    .r_footer{
+        margin-left: 2px;
+        -webkit-border-top-left-radius: 60px;
+        -webkit-border-bottom-left-radius: 60px;
+        -webkit-border-top-right-radius: 80px;
+        -webkit-border-bottom-right-radius: 40px;
+    }
+    .line{
+        margin-top: 10px;
+        margin-left: -2px;
+        width: 100%;
+        height:2px;
+        border: 2px solid #000;
+    }
+    .ding{
+        width: 12px;
+        height: 10px;
+        border-radius: 50%;
+        background: #000;
+        margin: 0 auto;
+        margin-top: 5px;
+    }
+    .dings{
+        width: 3px;
+        height: 15px;
+        background: #000;margin:0 auto;
+
+    }
+</style>
+<body>
+    <div class="box">
+            <div class="ameng">
+                    <div class="header">
+                        <div class="face">
+                            <div class="eyes">
+                                <div class="yanqiu"></div>
+                            </div>
+                            <div class="eyes two">
+                                <div class="yanqiu2"></div>
+                            </div>
+                            <div class="insert">
+                                <div class="bizi">
+                                        <div class="sbizi"></div>
+                                </div>
+                                <div class="zui">
+                                    <div class="xu"></div>
+                                </div>
+                                <div class="l_face">
+                                    <div class="mao"></div>
+                                    <div class="mao"></div>
+                                    <div class="mao"></div>
+                                </div>
+                                <div class="r_face">
+                                    <div class="mao"></div>
+                                    <div class="mao"></div>
+                                    <div class="mao"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                     <div class="weijin">
+                         <div class="lingdang">
+                             <div class="line"></div>
+                             <div class="ding">
+
+                             </div>
+                             <div class="dings"></div>
+                         </div>
+                     </div>
+                <div class="r_shou">
+                    <div class="shou1"></div>
+                    <div class="shous"></div>
+                </div>
+                <div class="l_shou">
+                    <div class="shou1 add"></div>
+                    <div class="shous  add1"></div>
+                </div>
+                    <div class="body">
+                        <div class="koudai">
+                            <div class="skoudai"> <div class="zhezhao"></div></div>
+                        </div>
+                        <div class="sbody">
+                            <div class="syuan"></div>
+                        </div>
+                    </div>
+                    <div class="footerbox">
+                        <div class="l_footer footer"></div>
+                        <div class="r_footer footer"></div>
+                    </div>
+            </div>
+    </div>
+</body>
+</html>

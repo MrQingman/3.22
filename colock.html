@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .clock{
+        width: 400px;
+        height: 400px;
+        border: 10px solid #aaa;
+        position: fixed;
+        left: 0;
+        top:0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        border-radius: 50%;
+        background: radial-gradient(#ffffff,gray);
+    }
+</style>
+<body>
+    <div class="clock">
+
+    </div>
+</body>
+<script>
+    window.onload=function () {
+        function clocks(obj){
+            var left;
+            var objW=obj.offsetWidth-20;
+            for(var i=0;i<=60;i++){
+                if(i%5==0){
+                    width=5;
+                    height=25;
+                    left=(objW-width)/2;
+                }else{
+                    width=4;
+                    height=10;
+                    left=(objW-width)/2;
+                }
+                var kedu=document.createElement("div");
+                kedu.style.cssText="width:"+width+"px;height:"+height+"px;background:rgba(0,0,0,0.6);position:absolute;left:"+left+"px;top:0";
+                kedu.style.transform="rotate("+i*6+"deg)";
+                kedu.style.transformOrigin="center 200px";
+                kedu.style.borderBottomLeftRadius="5px";
+                kedu.style.borderBottomRightRadius="5px";
+                obj.appendChild(kedu);
+            }
+        }
+        var clock=document.querySelector(".clock");
+        clocks(clock);
+
+        var h=Pointer(clock,15,70,"#000",0);
+        var m=Pointer(clock,10,110,"#000",0);
+        var s=Pointer(clock,6,150,"red",0);
+        var yuan=Pointer(clock,15,15,"#000");
+        yuan.style.borderRadius="50%";
+        yuan.style.top=yuan.offsetTop+5+"px";
+        yuan.style.background="radial-gradient(#ffffff,#444)";
+        var t=setInterval(move,1000);
+       function move() {
+           var times=new Date();
+           var hours=times.getHours();
+           var mines=times.getMinutes();
+           var second=times.getSeconds();
+            h.style.transform="rotate("+(hours*30+mines*6/360*30)+"deg)";
+            m.style.transform="rotate("+(mines*6)+"deg)";
+            s.style.transform="rotate("+(second*6)+"deg)";
+//            console.log(second*6);
+       }
+        function Pointer(obj,w,h,c,a) {
+            var pointer=document.createElement("div");
+            var left=(obj.offsetWidth-20-w)/2;
+            var top=(obj.offsetHeight-20)/2-h;
+            pointer.style.cssText="width:"+w+"px;height:"+h+"px;background:"+c+";position:absolute;left:"+left+"px;top:"+top+"px";
+            pointer.style.transform="rotate("+a+"deg)";
+            pointer.style.borderTopLeftRadius="5px";
+            pointer.style.borderTopRightRadius="5px";
+            pointer.style.transformOrigin="center bottom";
+            clock.appendChild(pointer);
+            return pointer;
+        }
+
+    }
+</script>
+</html>
